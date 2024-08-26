@@ -1,0 +1,82 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+@use "./common";
+.weather-card {
+	background-color: $color1;
+	color: $color3;
+	@include border-radius(20px);
+	@media (min-width: $breakpoint) {
+		@include flex();
+	}
+	.panel-start {
+		background-image: $card-bg-img;
+		background-size: cover;
+		background-position: center;
+		padding: 20px;
+		position: relative;
+		overflow: hidden;
+		@include flex($ai: center);
+		@include border-radius(20px);
+		@media (min-width: $breakpoint) {
+			@include flex($fd: column, $ai: start, $gap: 30px);
+			padding-right: 80px;
+		}
+		> * {
+			position: relative;
+			z-index: 1;
+			@include shadow(text, 0 0 5px $color4);
+		}
+		&::before {
+			content: "";
+			@include fligran($color1, 0.3);
+		}
+		.date,
+		.temp {
+			h2 {
+				font-size: 2.5rem;
+			}
+			h4 {
+				font-size: 0.9rem;
+			}
+		}
+	}
+	.panel-end {
+		@include flex($fd: column, $gap: 20px);
+		padding: 20px;
+		@media (min-width: $breakpoint) {
+			flex: 1;
+		}
+		ul {
+			@include reset-list();
+		}
+		.status {
+			li {
+				@include flex();
+				justify-content: space-between;
+			}
+		}
+		.days {
+			@include flex();
+			justify-content: space-between;
+			li {
+				@include flex($fd: column, $ai: center);
+
+				span {
+					&:first-child {
+						font-size: 2.5rem;
+					}
+					&:nth-child(2) {
+						font-size: 0.8rem;
+					}
+				}
+			}
+		}
+		//Inheritance
+		button {
+			@extend .btn-common;
+			font-size: 1.1rem;
+			letter-spacing: 0.1rem;
+			cursor: pointer;
+		}
+	}
+}

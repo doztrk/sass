@@ -1,55 +1,5 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-body {
-	font-family: "Poppins", sans-serif;
-}
-.weather-card {
-	background-color: rgb(210, 105, 30);
-	color: rgb(233, 233, 233);
-	border-radius: 20px;
-	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
-	-ms-border-radius: 20px;
-	-o-border-radius: 20px;
+@use "./variables" as *;
+@use "./common";
+@use "./weather-card"
 
-	.panel-start {
-		background-image: url("../img/bg.jpg");
-		background-size: cover;
-		background-position: center;
-		position: relative;
-		padding: 20px;
-		border-radius: 20px;
-		overflow: hidden;
-		-webkit-border-radius: 20px;
-		-moz-border-radius: 20px;
-		-ms-border-radius: 20px;
-		-o-border-radius: 20px;
 
-		> * {
-			position: relative;
-			z-index: 1;
-			text-shadow: 0 0 5px rgb(35, 35, 35);
-		}
-
-		&::before {
-			content: "";
-			background-color: rgb(210, 105, 30, 0.4);
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-		}
-		.date {
-			h2 {
-			font-size: 2.5rem;
-            }
-            h4{
-                font-size: 0.9rem;
-            }
-		}
-	}
-}

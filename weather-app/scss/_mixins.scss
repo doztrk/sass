@@ -1,0 +1,53 @@
+@use "./variables" as *;
+
+
+//Mixin with param
+@mixin reset-list($margin: 0, $padding: 0) {
+	margin: $margin;
+	padding: $padding;
+	list-style: none;
+}
+//Mixin with param
+@mixin border-radius($radius) {
+	//For each
+	@each $v in $vendors{
+		#{v}border-radius: $radius;
+	}	
+}
+//Mixin with param
+@mixin fligran($color, $opacity: 0.5) {
+	background-color: rgba($color, $opacity);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+//Mixin with param
+@mixin flex-center($direction: row) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: center;
+	align-items: center;
+}
+//Mixin with param
+@mixin flex($fd: row, $jc: space-between, $ai: stretch, $gap: 0, $fw: wrap) {
+	display: flex;
+	flex-direction: $fd;
+	justify-content: $jc;
+	align-items: $ai;
+	gap: $gap;
+	flex-wrap: $fw;
+}
+//Interpolation
+@mixin shadow($type, $value) {
+	#{$type}-shadow: $value;
+}
+//Mixin with If statement
+@mixin shadow($type, $value) {
+	@if $type = box {
+		box-shadow: $value;
+	} @else {
+		text-shadow: $value;
+	}
+}
